@@ -4,7 +4,7 @@ class Database
     private $hostname = 'localhost';
     private $username = 'root';
     private $password = '';
-    private $dbname = 'quanlynhanvien_mvc';
+    private $dbname = 'CNW18N15';
 
     private $conn = NULL;
     private $result = NULL;
@@ -51,9 +51,9 @@ class Database
         return $data;
     }
 
-    public function getDataID($table, $idnv)
+    public function getDataID($table, $masv)
     {
-        $sql = "SELECT * FROM $table WHERE idnv ='$idnv'";
+        $sql = "SELECT * FROM $table WHERE masv ='$masv'";
         $this->execute($sql);
         if ($this->num_rows() != 0) {
             $data = mysqli_fetch_array($this->result);
@@ -73,21 +73,21 @@ class Database
         return $num;
     }
 
-    public function insertData($hoten, $idpb, $diachi)
+    public function insertData($masv, $hoten, $gioitinh, $khoa)
     {
-        $sql = "INSERT INTO nhanvien(idnv, hoten, idpb, diachi)VALUES(null, '$hoten', '$idpb', '$diachi')";
+        $sql = "INSERT INTO sinhvien(masv, hoten, gioitinh, khoa)VALUES('$masv', '$hoten', '$gioitinh', '$khoa')";
         return $this->execute($sql);
     }
 
-    public function updateData($idnv, $hoten, $idpb, $diachi)
+    public function updateData($masv, $hoten, $gioitinh, $khoa)
     {
-        $sql = "UPDATE nhanvien SET hoten = '$hoten', idpb = '$idpb', diachi = '$diachi' WHERE idnv = '$idnv'";
+        $sql = "UPDATE sinhvien SET hoten = '$hoten', gioitinh = '$gioitinh', khoa = '$khoa' WHERE masv = '$masv'";
         return $this->execute($sql);
     }
 
-    public function deleteData($idnv, $table)
+    public function deleteData($masv, $table)
     {
-        $sql = "DELETE FROM $table WHERE idnv = '$idnv'";
+        $sql = "DELETE FROM $table WHERE masv = '$masv'";
         return $this->execute($sql);
     }
 

@@ -48,7 +48,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="index.php?controller=nhanvien&action=list">Basic
+                            <li><i class="fa fa-table"></i><a href="index.php?controller=sinhvien&action=list">Basic
                                     Table</a></li>
                             <!-- <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li> -->
                         </ul>
@@ -58,7 +58,7 @@
                             aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-th"></i><a
-                                    href="index.php?controller=nhanvien&action=add">Basic
+                                    href="index.php?controller=sinhvien&action=add">Basic
                                     Form</a></li>
                             <!-- <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li> -->
                         </ul>
@@ -221,18 +221,22 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header"><strong>Create</strong><small> Employee</small></div>
+                            <div class="card-header"><strong>Create</strong><small> Student</small></div>
                             <div class="card-body card-block">
                                 <form action="" method="post">
-                                    <div class="form-group"><label for="company"
+                                    <div class="form-group"><label for="company" class=" form-control-label">Student
+                                            code</label><input type="text" id="company" placeholder="Enter student code"
+                                            class="form-control" name="masv">
+                                    </div>
+                                    <div class=" form-group"><label for="company"
                                             class=" form-control-label">Name</label><input type="text" id="company"
-                                            placeholder="Enter your name" class="form-control" name="name"></div>
+                                            placeholder="Enter your name" class="form-control" name="hoten"></div>
                                     <div class="form-group"><label for="vat"
-                                            class=" form-control-label">IDPB</label><input type="text" id="vat"
-                                            placeholder="IDPB" class="form-control" name="idpb"></div>
+                                            class=" form-control-label">Gender</label><input type="text" id="vat"
+                                            placeholder="Enter your gender" class="form-control" name="gioitinh"></div>
                                     <div class=" form-group"><label for="street"
-                                            class=" form-control-label">Address</label><input type="text" id="street"
-                                            placeholder="Enter Address" class="form-control" name="address"></div>
+                                            class=" form-control-label">Faculty</label><input type="text" id="street"
+                                            placeholder="Enter your faculty" class="form-control" name="khoa"></div>
                                     <div class=" form-group">
                                         <input type="submit" value="Save" class="btn btn-lg btn-info btn-block"
                                             name="add_user">

@@ -9,85 +9,86 @@ if (isset($_GET['action'])) {
 switch ($action) {
     case 'add': {
             if (isset($_POST['add_user'])) {
-                $name = $_POST['name'];
-                $idpb = $_POST['idpb'];
-                $address = $_POST['address'];
+                $masv = $_POST['masv'];
+                $hoten = $_POST['hoten'];
+                $gioitinh = $_POST['gioitinh'];
+                $khoa = $_POST['khoa'];
 
-                if ($db->insertData($name, $idpb, $address)) {
+                if ($db->insertData($masv, $hoten, $gioitinh, $khoa)) {
                     echo "Add success";
                 };
             }
 
-            require_once("./View/nhanvien/add_user.php");
+            require_once("./View/sinhvien/add_user.php");
             break;
         }
     case 'edit': {
             if (isset($_GET['id'])) {
                 $idnv = $_GET['id'];
-                $tblTable = 'nhanvien';
+                $tblTable = 'sinhvien';
 
                 $dataID = $db->getDataID($tblTable, $idnv);
             }
 
             if (isset($_POST['update_user'])) {
-                $name = $_POST['name'];
-                $idpb = $_POST['idpb'];
-                $address = $_POST['address'];
+                $hoten = $_POST['hoten'];
+                $gioitinh = $_POST['gioitinh'];
+                $khoa = $_POST['khoa'];
 
-                if ($db->updateData($idnv, $name, $idpb, $address)) {
+                if ($db->updateData($idnv, $hoten, $gioitinh, $khoa)) {
                     echo "Edit success";
-                    header('location: index.php?controller=nhanvien&action=list');
+                    header('location: index.php?controller=sinhvien&action=list');
                 };
             }
 
             if (isset($_POST['delete_user'])) {
                 if ($db->deleteData($idnv, $tblTable)) {
                     echo "Delete success";
-                    header('location: index.php?controller=nhanvien&action=list');
+                    header('location: index.php?controller=sinhvien&action=list');
                 } else {
                     echo "Delete fail";
-                    header('location: index.php?controller=nhanvien&action=list');
+                    header('location: index.php?controller=sinhvien&action=list');
                 }
             }
 
-            require_once("./View/nhanvien/edit_user.php");
+            require_once("./View/sinhvien/edit_user.php");
             break;
         }
     case 'search': {
             if (isset($_GET['key'])) {
                 $key = $_GET['key'];
-                $tblTable = 'nhanvien';
+                $tblTable = 'sinhvien';
 
                 $dataSearch = $db->searchData($key, $tblTable);
             }
 
-            require_once("./View/nhanvien/search_user.php");
+            require_once("./View/sinhvien/search_user.php");
             break;
         }
         // case 'delete': {
         //         if (isset($_GET['id'])) {
         //             $idnv = $_GET['id'];
-        //             $tblTable = 'nhanvien';
+        //             $tblTable = 'sinhvien';
 
         //             if (isset($_POST['delete_user'])) {
         //                 if ($db->deleteData($idnv, $tblTable)) {
         //                     echo "Delete success";
-        //                     header('location: index.php?controller=nhanvien&action=list');
+        //                     header('location: index.php?controller=sinhvien&action=list');
         //                 };
         //             }
 
-        //             require_once("./View/nhanvien/edit_user.php");
+        //             require_once("./View/sinhvien/edit_user.php");
         //             break;
         //         }
         //     }
     case 'list': {
-            $tblTable = "nhanvien";
+            $tblTable = "sinhvien";
             $data = $db->getAllData($tblTable);
-            require_once("./View/nhanvien/list.php");
+            require_once("./View/sinhvien/list.php");
             break;
         }
     default: {
-            require_once("./View/nhanvien/list.php");
+            require_once("./View/sinhvien/list.php");
             break;
         }
 }

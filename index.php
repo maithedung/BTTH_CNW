@@ -4,22 +4,17 @@ include "./Model/DBConfig.php";
 $db = new Database;
 $db->connect();
 
-// print_r($db->getAllData("nhanvien"));
-// print_r(($db->getDataID('nhanvien', '1')));
+// print_r($db->getAllData("sinhvien"));
+// print_r(($db->getDataID('sinhvien', '1')));
 
-if (isset($_GET['controller'])) 
-{
+if (isset($_GET['controller'])) {
   $controller = $_GET['controller'];
-}
-else
-{
+} else {
   $controller = '';
 }
 
-switch ($controller) 
-{
-  case 'nhanvien':
-    {
-      require_once("./Controller/nhanvien/index.php");
+switch ($controller) {
+  case 'sinhvien': {
+      require_once("./Controller/sinhvien/index.php");
     }
 }
